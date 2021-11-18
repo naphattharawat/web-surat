@@ -1,0 +1,47 @@
+<div class="main-container">
+    <header class="header-6">
+        <div class="branding">
+          <a href="javascript://" class="nav-link">
+            <clr-icon shape="vm-bug"></clr-icon>
+            <span class="title">Project Clarity</span>
+          </a>
+        </div>
+        <!-- <div class="header-actions header-actions-overflow">
+          <div class="dropdown bottom-left">
+            <button class="nav-text dropdown-toggle" aria-label="open user profile">
+              {{fullname}}
+              <clr-icon shape="angle" direction="down"></clr-icon>
+            </button>
+            <div class="dropdown-menu">
+              <a href="javascript://" class="dropdown-item">Preferences</a>
+              <a href="javascript://" class="dropdown=item">Log out</a>
+            </div>
+          </div>
+        </div> -->
+        <div class="header-actions">
+            <clr-dropdown>
+              <button class="nav-text" clrDropdownTrigger>
+                {{fullname}} 
+                <clr-icon shape="caret down"></clr-icon>
+              </button>
+              <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <!-- <a href="javascript://" (click)="showManual()" clrDropdownItem>คู่มือเจ้าหน้าที่คลังใหญ่</a>
+                <a href="javascript://" (click)="showManualStaff()" clrDropdownItem>คู่มือเจ้าหน้าที่หน่วยเบิก/รพ.สต.</a> -->
+                <a href="javascript://" clrDropdownItem>เปลี่ยนรหัสผ่าน</a>
+                <a href="javascript://"  clrDropdownItem>ออกจากระบบ</a>
+              </clr-dropdown-menu>
+            </clr-dropdown>
+          </div>
+      </header>
+    <div class="content-container">
+      <clr-vertical-nav>
+        <a clrVerticalNavLink routerLink="./users" routerLinkActive="active">จัดการผู้ใช้งาน</a>
+        <a clrVerticalNavLink routerLink="./hospitals" routerLinkActive="active">จัดการโรงพยาบาล</a>
+        <div class="nav-divider"></div>
+        <a clrVerticalNavLink routerLink="./credit" routerLinkActive="active">Credit</a>
+      </clr-vertical-nav>
+      <div class="content-area">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
