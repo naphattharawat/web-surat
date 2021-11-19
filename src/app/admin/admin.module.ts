@@ -7,6 +7,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { UsersComponent } from './users/users.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
   
     LayoutComponent,
        UsersComponent,
-       HospitalsComponent
+       HospitalsComponent,
+       UserDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { LoginModule } from './login/login.module';
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
@@ -14,6 +15,7 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { environment } from 'src/environments/environment';
     LoginModule,
     HttpClientModule,
     ClarityModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgChartsModule,
+    AuthModule
   ],
   providers: [
     { provide: 'API_URL', useValue: environment.apiUrl },

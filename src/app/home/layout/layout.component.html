@@ -1,0 +1,28 @@
+<div class="main-container">
+    <header class="header-6">
+        <div class="branding">
+          <a href="javascript://" class="nav-link">
+            <clr-icon shape="vm-bug"></clr-icon>
+            <span class="title">Project Clarity</span>
+          </a>
+        </div>
+        <div class="header-actions">
+            <clr-dropdown>
+              <button [routerLink]="['/login']" routerLinkActive="router-link-active"  class="nav-text" clrDropdownTrigger>
+               เข้าสู่ระบบ
+                <!-- <clr-icon shape="caret down"></clr-icon> -->
+              </button>
+              <!-- <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+              
+                <a href="javascript://"  (click)="logout()" clrDropdownItem>ออกจากระบบ</a>
+              </clr-dropdown-menu> -->
+            </clr-dropdown>
+          </div>
+      </header>
+    <div class="content-container">
+    
+      <div class="content-area">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

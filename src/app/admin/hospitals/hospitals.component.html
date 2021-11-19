@@ -1,1 +1,72 @@
-<p>hospitals works!</p>
+<ul class="breadcrumb">
+    <li>จัดการโรงพยาบาล</li>
+  </ul>
+  <div class="card">
+    <div class="card-block">
+      <div class="card-text">
+        <div class="clr-row">
+          <div class="clr-col-1">ค้นหา :</div>
+          <div class="clr-col-3">
+            <input type="text" (keyup)="onKeyEnter($event)" class="clr-input" style="width: 100%;" [(ngModel)]="query" name="query">
+          </div>
+          <div class="clr-col-8" style="text-align: right;">
+            <button class="btn btn-success btn-sm" (click)="onClickAdd()">
+              <clr-icon shape="plus"></clr-icon>
+              เพิ่ม
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <div class="card-text">
+        <clr-datagrid [clrDgLoading]="loading">
+          <clr-dg-column>#</clr-dg-column>
+          <clr-dg-column>รหัส</clr-dg-column>
+          <clr-dg-column>ชื่อ</clr-dg-column>
+          <clr-dg-column></clr-dg-column>
+  
+          <clr-dg-row *clrDgItems="let item of list;let idx=index">
+            <clr-dg-cell>{{idx+1}}</clr-dg-cell>
+            <clr-dg-cell>{{item.hospcode}}</clr-dg-cell>
+            <clr-dg-cell>{{item.hospname}}</clr-dg-cell>
+            <clr-dg-cell>
+              <button (click)="onClickEdit(item)" class="btn btn-sm btn-icon btn-success">
+                <clr-icon shape="note"></clr-icon>
+              </button>
+              <button (click)="onClickRemove(item.id)" class="btn btn-sm btn-icon btn-danger">
+                <clr-icon shape="trash"></clr-icon>
+              </button>
+            </clr-dg-cell>
+          </clr-dg-row>
+  
+          <clr-dg-footer>{{list.length}} items</clr-dg-footer>
+        </clr-datagrid>
+      </div>
+    </div>
+  
+  </div>
+  
+
+  <clr-modal [(clrModalOpen)]="modal">
+      <h3 class="modal-title">เพิ่ม/แก้ไขโรงพยาบาล</h3>
+      <div class="modal-body">
+          <div class="clr-row">
+              <div class="clr-col-4">รหัสโรงพยาบาล</div>
+              <div class="clr-col-8">
+                  <input type="text" [(ngModel)]="hospcode" class="clr-input">
+              </div>
+              <div class="clr-col-4">ชื่อโรงพยาบาล</div>
+              <div class="clr-col-8">
+                <input type="text" [(ngModel)]="hospname"  class="clr-input">
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="onClickSave()" [disabled]="!hospcode || !hospname">บันทึก</button>
+          <button type="button" class="btn btn-outline-danger" (click)="modal = false">ยกเลิก</button>
+      </div>
+  </clr-modal>

@@ -1,3 +1,4 @@
+import { UserDetailsComponent } from './user-details/user-details.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { UsersComponent } from './users/users.component';
 
@@ -8,7 +9,9 @@ import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
   {
     path: 'admin', component: LayoutComponent, children: [
+      { path: '', redirectTo: 'users', pathMatch: 'full' },
       { path: 'users', component: UsersComponent },
+      { path: 'users/details', component: UserDetailsComponent },
       { path: 'hospitals', component: HospitalsComponent }
     ]
   }

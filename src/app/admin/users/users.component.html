@@ -1,1 +1,58 @@
-<p>users works!</p>
+<ul class="breadcrumb">
+  <li>จัดการผู้ใช้งาน</li>
+</ul>
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <div class="clr-row">
+        <div class="clr-col-1">ค้นหา :</div>
+        <div class="clr-col-3">
+          <input type="text" (keyup)="onKeyEnter($event)" class="clr-input" style="width: 100%;" [(ngModel)]="query" name="query">
+        </div>
+        <div class="clr-col-8" style="text-align: right;">
+          <button class="btn btn-success btn-sm" [routerLink]="['/admin/users/details']" routerLinkActive="router-link-active" >
+            <clr-icon shape="plus"></clr-icon>
+            เพิ่ม
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-column>#</clr-dg-column>
+        <clr-dg-column>ชื่อ</clr-dg-column>
+        <clr-dg-column>นามสกุล</clr-dg-column>
+        <clr-dg-column>username</clr-dg-column>
+        <clr-dg-column>ประเภท</clr-dg-column>
+        <clr-dg-column></clr-dg-column>
+
+        <clr-dg-row *clrDgItems="let item of list;let idx=index">
+          <clr-dg-cell>{{idx+1}}</clr-dg-cell>
+          <clr-dg-cell>{{item.first_name}}</clr-dg-cell>
+          <clr-dg-cell>{{item.last_name}}</clr-dg-cell>
+          <clr-dg-cell>{{item.username}}</clr-dg-cell>
+          <clr-dg-cell>
+            <span *ngIf="item.type=='ADMIN'">ADMIN</span>
+            <span *ngIf="item.type=='USER'">เจ้าหน้าที่โรงพยาบาล</span>
+          </clr-dg-cell>
+          <clr-dg-cell>
+            <button (click)="onClickEdit(item.id)" class="btn btn-sm btn-icon btn-success">
+              <clr-icon shape="note"></clr-icon>
+            </button>
+            <button (click)="onClickRemove(item.id)" class="btn btn-sm btn-icon btn-danger">
+              <clr-icon shape="trash"></clr-icon>
+            </button>
+          </clr-dg-cell>
+        </clr-dg-row>
+
+        <clr-dg-footer>{{list.length}} items</clr-dg-footer>
+      </clr-datagrid>
+    </div>
+  </div>
+
+</div>

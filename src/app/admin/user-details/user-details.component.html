@@ -1,0 +1,49 @@
+<ul class="breadcrumb">
+    <li><a [routerLink]="['/admin/users']" routerLinkActive="router-link-active" >จัดการผู้ใช้งาน</a></li>
+    <li>เพิ่ม/แก้ไขผู้ใช้งาน</li>
+  </ul>
+
+  <div class="card">
+     <div class="card-block">
+         <div class="card-text">
+             <div class="clr-row">
+                 <div class="clr-col-3">คำนำหน้า</div>
+                 <div class="clr-col-9">
+                     <div class="clr-select-wrapper">
+                         <select [(ngModel)]="info.title_id" class="clr-select">
+                             <option *ngFor="let i of titleList" [value]="i.id">{{i.name}}</option>
+                         </select>
+                     </div>
+                 </div>
+                 <div class="clr-col-3">รหัสโรงพยาบาล</div>
+                 <div class="clr-col-9"><input type="text" class="clr-input" [(ngModel)]="info.hospcode"></div>
+                 <div class="clr-col-3">ชื่อ</div>
+                 <div class="clr-col-9"><input type="text" class="clr-input" [(ngModel)]="info.first_name"></div>
+                 <div class="clr-col-3">นามสกุล</div>
+                 <div class="clr-col-9"><input type="text" class="clr-input"  [(ngModel)]="info.last_name"></div>
+                 <div class="clr-col-3">username</div>
+                 <div class="clr-col-9"><input type="text" class="clr-input"  [(ngModel)]="info.username"></div>
+                 <div class="clr-col-3">password</div>
+                 <div class="clr-col-9"><input type="text" class="clr-input"  [(ngModel)]="info.password" placeholder="ระบุถ้าต้องการแก้ไข"></div>
+                 <div class="clr-col-3">ประเภท</div>
+                 <div class="clr-col-9">
+   
+                    <clr-radio-container clrInline>
+                        <clr-radio-wrapper>
+                          <input type="radio" clrRadio name="info.type" required value="USER" [(ngModel)]="info.type" />
+                          <label>เจ้าหน้าที่โรงพยาบาล</label>
+                        </clr-radio-wrapper>
+                        <clr-radio-wrapper>
+                          <input type="radio" clrRadio name="info.type" required value="ADMIN" [(ngModel)]="info.type" />
+                          <label> ADMIN</label>
+                        </clr-radio-wrapper>
+                      </clr-radio-container>
+
+                </div>
+             </div>
+         </div>
+     </div>
+     <div class="card-footer">
+         <button class="btn btn-success" (click)="onClickSave()">บันทึก</button>
+     </div>
+  </div>

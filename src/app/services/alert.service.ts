@@ -40,4 +40,16 @@ export class AlertService {
       confirmButtonText: 'Yes, delete it!'
     });
   }
+  remove() {
+    return Swal.fire({
+      title: 'คุณต้องการลบใช่หรือไม่ ?',
+      // text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ใช่',
+      cancelButtonText: 'ไม่ใช่'
+    });
+  }
 }
